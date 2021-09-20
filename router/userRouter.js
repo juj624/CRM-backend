@@ -12,7 +12,7 @@ const passwordRegex = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,})$/
 router.post("/register", async (req, res) => {
     const { email, password } = req.body;
     const resultPassword = passwordRegex.test(password)
-    console.log(resultPassword);
+    // console.log(resultPassword);
 
     //Hash password
     const hashedPassword = await bcrypt.hash(password, 12);
@@ -42,7 +42,6 @@ router.post("/login", async (req, res) => {
     // Check if user exists
     //const user = await User.findOne({ email: email });
     const user = await User.findOne({ email });
-
     if (!user) {
         return res.status(400).json({
             message: "Invalid email or password",
