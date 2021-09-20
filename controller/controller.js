@@ -10,7 +10,7 @@ const getAllUsers = (_req, res) => {
 const getOneUser = (_req, res) => {
     res.json({
         status: 'ok',
-        data: {},
+        data: user,
     });
 };
 
